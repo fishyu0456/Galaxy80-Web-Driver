@@ -1,0 +1,11 @@
+{
+  "macros": {
+    "acknowledgedPackets": 16
+  },
+  "colors": {
+    "acknowledgedPackets": 21
+  },
+  "lighting": {
+    "acknowledgedPackets": 1
+  }
+}

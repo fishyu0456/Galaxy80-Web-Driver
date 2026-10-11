@@ -1,0 +1,8 @@
+tools/deps/
+tools/__pycache__/
+research/*.asm
+research/*.strings.txt
+research/*.imports.json
+research/*.bin
+research/device-backup*.json
+node_modules/
