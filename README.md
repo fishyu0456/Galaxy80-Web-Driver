@@ -1,5 +1,10 @@
 # Galaxy80 网页控制台
 
+## 启动
+
+需要 Node.js 20 或更高版本，以及支持 WebHID 的桌面 Chrome / Edge。
+项目使用原生 HTML、CSS、JavaScript，没有第三方运行依赖，无需安装依赖或编译。
+
 在项目目录运行 `npm start`，用桌面 Chrome 或 Edge 打开 http://127.0.0.1:8080。
 保持原驱动关闭，点击“连接键盘”，选择有线 Galaxy80 或无线 Galaxy80-2.4g。
 修改自动应用，不需要再次保存。
@@ -15,3 +20,21 @@
 - Alt 组合键禁用只检测左侧 Alt，此行为来自提供的固件。
 
 `npm test` 运行协议与自动应用回归测试。固件文件仅用于协议分析和文件检查，网页不执行固件刷写。
+
+## 项目目录
+
+- `web/`：完整网页源码、键盘布局及无线初始配置备份。
+- `tests/`：协议与自动应用回归测试。
+- `tools/server.mjs`：本地网页服务器，仅监听本机 8080 端口。
+- `tools/*.py`：Windows HID 检查、备份、联调和协议研究工具。
+- `research/*.md`：有线与无线协议说明、验证范围。
+- `SN32F240.hex`：用户提供的原始固件参考文件，并非网页编译产物。
+
+Python 工具不影响网页正常使用。反汇编工具需要 Python、`capstone` 和
+`pefile`，可通过 `python -m pip install --target tools/deps capstone pefile`
+安装。部分研究工具使用原驱动路径 `D:\Program Files\VTER Driver`，在其他
+机器运行时需要调整。生成的分析文件、设备枚举和临时验证记录不纳入源码仓库。
+无线联调脚本需要现场生成的数据包文件，并非开箱即用的通用测试。
+
+`web/device-baseline.json` 是此键盘的初始配置快照，网页无线初始化会使用它，
+因此随源码保留。其他键盘首次使用请先通过有线读取自己的配置。

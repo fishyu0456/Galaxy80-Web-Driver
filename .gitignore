@@ -6,3 +6,12 @@ research/*.imports.json
 research/*.bin
 research/device-backup*.json
 node_modules/
+**/__pycache__/
+*.py[cod]
+research/*.json
+dist/
+build/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
